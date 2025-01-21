@@ -3,4 +3,8 @@ class VillasController < ApplicationController
     @villas = Villa.all
   end
 
+  def show
+    @villa = Villa.find(params[:id])
+  end
+
 end

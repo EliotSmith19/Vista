@@ -10,9 +10,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  get "dashboard" => "villas#index"
+  get "dashboard" => "bookings#index"
 
-  resources :villas, except: [:index] do
+  resources :villas do
     resources :bookings, only: [:new, :create, :edit, :update, :destroy]
   end
 end
