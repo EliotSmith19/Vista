@@ -1,6 +1,5 @@
-<h1>Vista Villas</h1>
-
 <div class="container">
+  <h1>Vista Villas</h1>
   <div class="cards-info">
     <h2>Find your dream vacation</h2>
   </div>
@@ -8,9 +7,27 @@
   <div class="cards">
     <% @villas.each do |villa| %>
       <div class="card-villa">
+
         <%= link_to villa_path(villa), class: "villa-link" do %>
-              <%= villa.villa_name %>
+          <%= villa.villa_name %>
         <% end %>
+
+        <div class="container" >
+          <img src="<%= villa.img_url%>" alt="recipe image" width="600px" height="400px" >
+          <p><%= villa.villa_location %></p>
+          <p><%= villa.description %></p>
+          <p>£<%= villa.price %> night</p>
+          <p><%= villa.description %></p>
+          <div>
+            <p>Hosted by <%= villa.user.first_name %> <%= villa.user.last_name %> </p>
+          </div>
+          <div>
+            <%= villa.rating %> <%= '⭐️'* villa.rating %>
+          </div>
+          <br>
+          <%= link_to "Back to villas list", villas_path, class: "btn btn-primary btn-nav" %>
+        </div>
       </div>
     <% end %>
   </div>
+</div>
