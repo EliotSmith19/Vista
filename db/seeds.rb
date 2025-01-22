@@ -5,18 +5,18 @@ Villa.destroy_all
 User.destroy_all
 
 # Create Users
-# users = []
-# 5.times do |i|
-#   users << User.create!(
-#     email: "user#{i+1}@example.com",
-#     password: "password#{i+1}", # Replace with real encrypted password in production
-#     first_name: "FirstName#{i+1}",
-#     last_name: "LastName#{i+1}",
-#     phone_number: "123456789#{i}",
-#     address: "123 Example St, City#{i}",
-#     img_url: "https://kitt.lewagon.com/placeholder/users/cveneziani"
-#   )
-# end
+users = []
+5.times do |i|
+  users << User.create!(
+    email: "user#{i+1}@example.com",
+    password: "password#{i+1}", # Replace with real encrypted password in production
+    first_name: "FirstName#{i+1}",
+    last_name: "LastName#{i+1}",
+    phone_number: "123456789#{i}",
+    address: "123 Example St, City#{i}",
+    img_url: "https://kitt.lewagon.com/placeholder/users/cveneziani"
+  )
+end
 
 # Create Unique Villas
 villas = []
