@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+
   before_action :set_villa
   before_action :set_user
 
@@ -38,6 +39,4 @@ class BookingsController < ApplicationController
   def set_user
     @user = @villa.user
   end
-
-
 end

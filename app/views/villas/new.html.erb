@@ -29,4 +29,36 @@
       <% end %>
     </div>
   </div>
-</div>
+
+<!-- <h1>Create a Villa Listing</h1> -->
+
+<!-- <div class="form-container"> -->
+  <%=# form_with model: @villa, local: true do |f| %>
+<!--     <div class="form-group"> -->
+      <%#= f.label :villa_name, "Villa Name" %>
+      <%=# f.text_field :villa_name, class: "form-control" %>
+<!--     </div> -->
+
+<!--     <div class="form-group"> -->
+      <%#= f.label :villa_location, "Villa Location" %>
+      <%#= f.text_field :villa_location, class: "form-control" %>
+<!--     </div> -->
+
+<!--     <div class="form-group"> -->
+      <%#= f.label :description, "Description" %>
+      <%#= f.text_area :description, class: "form-control" %>
+<!--     </div> -->
+
+<!--     <div class="form-group"> -->
+      <%#= f.label :price, "Price per Night (USD)" %>
+      <%#= f.number_field :price, step: 0.01, class: "form-control" %>
+<!--     </div>
+ -->
+<!--     <div class="form-group"> -->
+      <%#= f.label :photo, "Upload Image" %>
+      <%#= f.file_field :photo, class: "form-control" %>
+<!--     </div> -->
+
+    <%#= f.submit "Add Villa", class: "btn btn-primary" %>
+  <%# end %>
+<!-- </div> -->
