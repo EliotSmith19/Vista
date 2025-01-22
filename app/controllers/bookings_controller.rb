@@ -4,6 +4,7 @@ class BookingsController < ApplicationController
   before_action :set_user
 
 
+
   def index
     @booking = Booking.all
   end
@@ -16,7 +17,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.villa = @villa
-    @booking.user = @user
+    @booking.user = current_user
     @booking.confirmed = false if @booking.confirmed.nil?
 
     if @booking.save
@@ -25,6 +26,27 @@ class BookingsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
+  def edit
+    @booking = Booking.find(params[:id])
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    if @booking.update(booking_params)
+      redirect_to dashboard_path, notice: "Booking updated successfully!"
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+
+  def destroy
+    @booking.destroy
+    redirect_to  dashboard_path, status: :see_other
+  end
+
+
 
   private
 
@@ -37,6 +59,7 @@ class BookingsController < ApplicationController
   end
 
   def set_user
-    @user = @villa.user
+
+    @user = current_user
   end
 end
