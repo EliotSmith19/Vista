@@ -1,4 +1,5 @@
 <div class="my-container">
+
   <h1>My Properties</h1>
 
   <% if @villas.any? %>
@@ -43,6 +44,22 @@
         <p><%= booking.villa.description %></p>
         <p><%= booking.start_date %></p>
         <p><%= booking.end_date %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="my-container">
+  <h1>Booking Requests to Confirm</h1>
+  <div>
+    <% @booking_requests.each do |request| %>
+      <div>
+        <img src="<%= request.villa.img_url%>" alt="recipe image" width="600px" height="400px" >
+        <p><%= request.villa.villa_name %></p>
+        <p><%= request.villa.description %></p>
+        <p><%= request.start_date %></p>
+        <p><%= request.end_date %></p>
       </div>
     <% end %>
   </div>
