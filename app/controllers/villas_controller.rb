@@ -28,9 +28,9 @@ class VillasController < ApplicationController
   private
 
   def villa_params
-    params.require(:villa).permit(:villa_name, :villa_location, :description, :price, :photo)
+    params.require(:villa).permit(:villa_name, :villa_location, :description, :price, :img_url, :rating )
   end
-  
+    
   def set_villa
     @villa = Villa.find(params[:id])
   end

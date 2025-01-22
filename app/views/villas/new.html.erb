@@ -1,32 +1,64 @@
-<h1>Create a Villa Listing</h1>
-
-<div class="form-container">
-  <%= form_with model: @villa, local: true do |f| %>
-    <div class="form-group">
-      <%= f.label :villa_name, "Villa Name" %>
-      <%= f.text_field :villa_name, class: "form-control" %>
+<div class="container m-5">
+  <h1 class="text-center mb-4">Add a Property</h1>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <%= simple_form_for @villa, html: { class: "simple_form" } do |f| %>
+        <div class="mb-3">
+          <%= f.label :villa_name, "Name", class: "form-label" %>
+          <%= f.input_field :villa_name, as: :string, class: "form-control" %>
+        </div>
+        <div class="mb-3">
+          <%= f.label :villa_location, "Location", class: "form-label" %>
+          <%= f.input_field :villa_location, as: :string, class: "form-control" %>
+        </div>
+        <div class="mb-3">
+          <%= f.input :img_url, as: :url %>
+        </div>
+        <%= f.hidden_field :villa_id, value: params[:villa_id] %>
+        <div class="mb-3">
+          <%= f.label :description, "Description", class: "form-label" %>
+          <%= f.input_field :description, as: :text, class: "form-control" %>
+        </div>
+        <div class="mb-3">
+          <%= f.label :price, "Price", class: "form-label" %>
+          <%= f.input_field :price, as: :float, class: "form-control" %>
+        </div>
+        <div class="d-grid">
+          <%= f.button :submit, "Add Property", class: "btn btn-primary btn-lg" %>
+        </div>
+      <% end %>
     </div>
+  </div>
 
-    <div class="form-group">
-      <%= f.label :villa_location, "Villa Location" %>
-      <%= f.text_field :villa_location, class: "form-control" %>
-    </div>
+<!-- <h1>Create a Villa Listing</h1> -->
 
-    <div class="form-group">
-      <%= f.label :description, "Description" %>
-      <%= f.text_area :description, class: "form-control" %>
-    </div>
+<!-- <div class="form-container"> -->
+  <%=# form_with model: @villa, local: true do |f| %>
+<!--     <div class="form-group"> -->
+      <%#= f.label :villa_name, "Villa Name" %>
+      <%=# f.text_field :villa_name, class: "form-control" %>
+<!--     </div> -->
 
-    <div class="form-group">
-      <%= f.label :price, "Price per Night (USD)" %>
-      <%= f.number_field :price, step: 0.01, class: "form-control" %>
-    </div>
+<!--     <div class="form-group"> -->
+      <%#= f.label :villa_location, "Villa Location" %>
+      <%#= f.text_field :villa_location, class: "form-control" %>
+<!--     </div> -->
 
-    <div class="form-group">
-      <%= f.label :photo, "Upload Image" %>
-      <%= f.file_field :photo, class: "form-control" %>
-    </div>
+<!--     <div class="form-group"> -->
+      <%#= f.label :description, "Description" %>
+      <%#= f.text_area :description, class: "form-control" %>
+<!--     </div> -->
 
-    <%= f.submit "Add Villa", class: "btn btn-primary" %>
-  <% end %>
-</div>
+<!--     <div class="form-group"> -->
+      <%#= f.label :price, "Price per Night (USD)" %>
+      <%#= f.number_field :price, step: 0.01, class: "form-control" %>
+<!--     </div>
+ -->
+<!--     <div class="form-group"> -->
+      <%#= f.label :photo, "Upload Image" %>
+      <%#= f.file_field :photo, class: "form-control" %>
+<!--     </div> -->
+
+    <%#= f.submit "Add Villa", class: "btn btn-primary" %>
+  <%# end %>
+<!-- </div> -->
