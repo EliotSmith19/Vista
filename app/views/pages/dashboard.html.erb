@@ -45,10 +45,17 @@
         <p><%= booking.start_date %></p>
         <p><%= booking.end_date %></p>
       </div>
+      <div>
+        <%= link_to 'Amend Booking', edit_villa_booking_path(booking.villa, booking), class: 'btn btn-primary' %>
+        <%= link_to 'Delete', villa_booking_path(booking.villa, booking),
+              method: :delete,
+              data: { confirm: 'Are you sure you want to delete this booking?' },
+              class: 'btn btn-danger mt-2' %>
+      </div>
+
     <% end %>
   </div>
 </div>
-
 
 <div class="my-container">
   <h1>Booking Requests to Confirm</h1>
