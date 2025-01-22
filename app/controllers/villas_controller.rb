@@ -39,6 +39,7 @@ class VillasController < ApplicationController
   end
 
   def set_villa
-    @villa = current_user.villas.find(params[:id])
+    # @villa = current_user.villas.find(params[:id])
+    @villa = Villa.find(params[:id])
   end
 end
