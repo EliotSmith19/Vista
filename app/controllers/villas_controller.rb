@@ -1,6 +1,16 @@
 class VillasController < ApplicationController
-  before_action :authenticate_user!
 
+  before_action :authenticate_user!
+  before_action :set_villa, only: [:show]
+  
+  def index
+    @villas = Villa.all
+  end
+  
+  def show
+
+  end
+  
   def new
     @villa = Villa.new
   end
@@ -19,5 +29,9 @@ class VillasController < ApplicationController
 
   def villa_params
     params.require(:villa).permit(:villa_name, :villa_location, :description, :price, :photo)
+  end
+  
+  def set_villa
+    @villa = Villa.find(params[:id])
   end
 end
