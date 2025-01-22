@@ -1,0 +1,12 @@
+.btn-main {
+  border: 1px solid white;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  transition: 0.3s ease;
+
+  &:hover {
+    padding: 10px 50px;
+    font-size: 25px;
+  }
+}
