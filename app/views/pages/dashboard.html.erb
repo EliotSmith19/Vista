@@ -1,3 +1,4 @@
+
 <h1>My Properties</h1>
 
 <% if @villas.any? %>
@@ -29,3 +30,21 @@
 <div class="mt-3">
   <%= link_to 'Add New Property', new_villa_path, class: 'btn btn-success' %>
 </div>
+
+<h1>My Booking</h1>
+<ul>
+  <% @my_bookings.each do |booking| %>
+    <li>
+      <%= booking.villa.villa_name %>
+    </li>
+    <li>
+      <img src="<%= booking.villa.img_url%>" alt="recipe image" width="600px" height="400px" >
+    </li>
+    <li>
+      <%= booking.start_date %>
+    </li>
+    <li>
+      <%= booking.end_date %>
+    </li>
+  <% end %>
+</ul>
