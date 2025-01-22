@@ -1,17 +1,19 @@
-<div class="container" >
-  <h1><%= @villa.villa_name %></h1>
-  <img src="<%= @villa.img_url%>" alt="recipe image" width="600px" height="400px" >
-  <p><%= @villa.villa_location %></p>
-  <p><%= @villa.description %></p>
-  <p>£<%= @villa.price %> night</p>
-  <p><%= @villa.description %></p>
-  <div>
-    <p>Hosted by <%= @villa.user.first_name %> <%= @villa.user.last_name %> </p>
-  </div>
-  <div>
-    <%= @villa.rating %> <%= '⭐️'* @villa.rating %>
-  </div>
+<div class="my-container">
+  <div class="villa-card">
+    <%= image_tag @villa.img_url %>
 
-  <br>
+    <div class="villa-info">
+      <h1><%= @villa.villa_name %></h1>
+      <p><em><%= @villa.villa_location %></em></p>
+      <hr class="divider">
+      <p><%= @villa.description %></p>
+      <p><strong>$<%= @villa.price %> night</strong></p>
+      <%= @villa.rating %> <%= '⭐️'* @villa.rating %>
+    </div>
+
+  </div>
+</div>
+
+<div class="my-container">
   <%= link_to "Back to villas list", villas_path, class: "btn btn-primary btn-nav" %>
 </div>
