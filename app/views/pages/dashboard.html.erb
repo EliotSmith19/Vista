@@ -68,6 +68,7 @@
         <p><%= request.villa.description %></p>
         <p><%= request.start_date %></p>
         <p><%= request.end_date %></p>
+        <p><%= request.confirmed  %></p>
       </div>
       <div>
         <%= link_to 'Amend Request', edit_villa_booking_path(request.villa, request), class: 'btn btn-primary' %>
