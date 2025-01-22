@@ -7,6 +7,7 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
 Review.destroy_all
 Booking.destroy_all
 Favourite.destroy_all

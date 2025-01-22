@@ -11,9 +11,11 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   get "dashboard" => "pages#dashboard"
+
   # resources :dashboard, only: [:index]
 
   resources :villas do
-    resources :bookings, only: [:index, :new, :create, :edit, :update, :destroy]
+    
+    resources :bookings, only: [:new, :create, :edit, :update, :destroy]
   end
 end
