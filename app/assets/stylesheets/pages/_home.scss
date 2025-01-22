@@ -1,3 +1,50 @@
+.container-main {
+  width: 100%;
+  max-width: 1800px;
+  margin: 0px auto;
+  padding: 15px 15px;
+  // background-color: aquamarine;
+}
+
+#homescreen-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 50vh;
+
+  h1 {
+    font-size: 100px;
+    color: white;
+    text-shadow: 1px 1px 20px black;
+  }
+
+  p {
+    font-size: 25px;
+    padding: 0px 100px;
+    padding-bottom: 20px;
+    color: white;
+    text-shadow: 1px 1px 20px black;
+  }
+
+  a {
+    font-size: 25px;
+    text-decoration: none;
+  }
+}
+
+.home-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.402), rgba(0, 0, 0, 0.402)), image-url('Homebanner.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 // Specific CSS for your home-page
 .card-trip {
   overflow: hidden;
