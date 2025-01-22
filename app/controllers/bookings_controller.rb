@@ -33,6 +33,7 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
+
     if @booking.update(booking_params)
       redirect_to dashboard_path, notice: "Booking updated successfully!"
     else
