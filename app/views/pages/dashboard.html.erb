@@ -47,6 +47,8 @@
       </div>
       <div>
         <%= link_to 'Amend Booking', edit_villa_booking_path(booking.villa, booking), class: 'btn btn-primary' %>
+      </div>
+      <div>
         <%= link_to 'Cancel Booking', villa_booking_path(booking.villa, booking),
               method: :delete,
               data: { confirm: 'Are you sure you want to delete this booking?' },
