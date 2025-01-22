@@ -35,15 +35,15 @@
 
 <div class="my-container">
   <h1>My Booking</h1>
-  <ul>
+  <div>
     <% @my_bookings.each do |booking| %>
-      <li>
+      <div>
         <img src="<%= booking.villa.img_url%>" alt="recipe image" width="600px" height="400px" >
         <p><%= booking.villa.villa_name %></p>
         <p><%= booking.villa.description %></p>
         <p><%= booking.start_date %></p>
         <p><%= booking.end_date %></p>
-      </li>
+      </div>
     <% end %>
-  </ul>
+  </div>
 </div>
