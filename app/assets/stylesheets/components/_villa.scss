@@ -1,0 +1,33 @@
+.villa-card {
+  display: flex;
+  flex-direction: column;
+  margin: 30px auto;
+  background-color: white;
+  width: 70%;
+  max-width: 1200px;
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.353);
+  border-radius: 20px;
+
+  img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 20px 20px 0px 0px;
+  }
+}
+
+.villa-info {
+  padding: 20px;
+
+  h1 {
+    color: #DCA47C;
+  }
+}
+
+
+.divider {
+  width: 100%;
+  color: #DCA47C;
+  height: 5px;
+  border-bottom: 2px solid #DCA47C;
+}
