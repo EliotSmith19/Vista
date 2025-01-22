@@ -1,36 +1,26 @@
-<div class="container">
-  <h1>Vista Villas</h1>
-  <div class="cards-info">
-    <h2>Find your dream vacation</h2>
-  </div>
-
-  <%= link_to "Back to villas list", villas_path, class: "btn btn-primary btn-nav" %>
-
-  <div class="cards">
+<div class="container mt-5">
+  <div class="row">
     <% @villas.each do |villa| %>
-      <div class="card-villa">
+      <div class="col-md-4">
+        <div class="card card-trip mb-4">
+          <%= image_tag villa.img_url, alt: villa.villa_name, class: "card-img-top" %>
+             <div class="card-body card-trip-infos">
+                <div>
+                  <h2 class="card-title"><%= link_to villa.villa_name, villa_path(villa) %></h2>
+                  <p class="card-text">Hosted By: <%= villa.user_id %></p>
+                </div>
+                <div class="d-flex flex-row">
+                  <div class="rating-container">
+                   <% villa.rating.round.times do %>
+                  <i class="fas fa-star star-yellow"></i>
+                <% end %>
+                <h2 class="card-trip-pricing">£99.99</h2>
+              </div>
+            </div>
 
-        <%= link_to villa_path(villa), class: "villa-link" do %>
-          <%= villa.villa_name %>
-        <% end %>
-
-        <div class="container" >
-          <img src="<%= villa.img_url%>" alt="recipe image" width="600px" height="400px" >
-          <p><%= villa.villa_location %></p>
-          <p><%= villa.description %></p>
-          <p>£<%= villa.price %> night</p>
-          <p><%= villa.description %></p>
-          <div>
-            <p>Hosted by <%= villa.user.first_name %> <%= villa.user.last_name %> </p>
           </div>
-          <div>
-            <%= villa.rating %>
-          </div>
-          <br>
         </div>
       </div>
     <% end %>
-    <%= link_to "Back to villas list", villas_path, class: "btn btn-primary btn-nav" %>
-
   </div>
 </div>
