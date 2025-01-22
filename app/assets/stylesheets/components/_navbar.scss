@@ -50,3 +50,11 @@
     }
   }
 }
+
+
+.avatar {
+  border-radius: 50%; /* This makes the image circular */
+  object-fit: cover; /* Ensures the image covers the given dimensions */
+  width: 50px; /* Adjust width as necessary */
+  height: 50px; /* Adjust height as necessary */
+}
