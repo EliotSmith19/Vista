@@ -10,3 +10,22 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+.flash {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.flash.notice {
+  background-color: #e7f5ff;
+  border: 1px solid #b3d7ff;
+  color: #007bff;
+}
+
+.flash.alert {
+  background-color: #ffebeb;
+  border: 1px solid #ffb3b3;
+  color: #ff0000;
+}

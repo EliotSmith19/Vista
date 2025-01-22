@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   get "dashboard" => "pages#dashboard"
+
   # resources :dashboard, only: [:index]
 
   resources :villas do
