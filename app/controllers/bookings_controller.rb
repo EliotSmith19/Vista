@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
     @booking.confirmed = false if @booking.confirmed.nil?
 
     if @booking.save
-      redirect_to dashboard_path, notice: "Booking request submitted successfully!"
+      redirect_to dashboard_index_path, notice: "Booking request submitted successfully!"
     else
       render :new, status: :unprocessable_entity
     end
