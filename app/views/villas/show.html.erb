@@ -15,7 +15,7 @@
       <%= @villa.rating %> <%= '⭐️'* @villa.rating %>
     </div>
     <div>
-      <%= link_to "Reserve this villa", new_villa_booking_path(@villa), class: "btn btn-primary btn-sand btn-nav" %>
+      <%= link_to "Reserve this villa", new_villa_booking_path(@villa), class: "btn-show" %>
     </div>
   </div>
 </div>
@@ -26,7 +26,7 @@
     <h4>Hosted by:</h4>
     <p><strong><%= @villa.user.first_name %> <%= @villa.user.last_name %></strong></p>
   </div>
-  
+
   <div class="hosted-image">
     <%= image_tag(@villa.user.img_url) %>
   </div>
