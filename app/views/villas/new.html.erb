@@ -1,6 +1,6 @@
 <div class="container-main">
   <div class="my-form">
-    <h1 class="text-center mb-4">Add a Property</h1>
+    <h1 class="text-center mb-4">Add a Villa</h1>
     <div class="row justify-content-center">
       <div class="col-md-6">
         <%= simple_form_for @villa, html: { class: "simple_form" } do |f| %>
@@ -27,7 +27,7 @@
             <%= f.input_field :price, as: :float, class: "form-control" %>
           </div>
           <div class="d-grid">
-            <%= f.button :submit, "Add Property", class: "btn btn-primary btn-sand btn-lg" %>
+            <%= f.button :submit, "Add Property", class: "btn btn-primary btn-sand btn-lg my-2" %>
           </div>
         <% end %>
       </div>
