@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @villa = Villa.find(params[:villa_id])
+    # @villa = Villa.find(params[:villa_id])
     @booking = Booking.new
   end
 
@@ -21,7 +21,7 @@ class BookingsController < ApplicationController
     @booking.confirmed = false if @booking.confirmed.nil?
 
     if @booking.save
-      redirect_to dashboard_index_path, notice: "Booking request submitted successfully!"
+      redirect_to dashboard_path, notice: "Booking request submitted successfully!"
     else
       render :new, status: :unprocessable_entity
     end
@@ -34,6 +34,9 @@ class BookingsController < ApplicationController
   def update
     @booking = Booking.find(params[:id])
 
+
+    @booking.user = @user
+    
     if @booking.update(booking_params)
       redirect_to dashboard_path, notice: "Booking updated successfully!"
     else
@@ -60,7 +63,7 @@ class BookingsController < ApplicationController
   end
 
   def set_user
-
-    @user = current_user
+    @current_user = User.find(current_user.id)
+    @user = @current_user
   end
 end

@@ -1,13 +1,3 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
-
 Review.destroy_all
 Booking.destroy_all
 Favourite.destroy_all
@@ -28,19 +18,58 @@ users = []
   )
 end
 
-# Create Villas
+# Create Unique Villas
 villas = []
-5.times do |i|
-  villas << Villa.create!(
-    villa_name: "Luxury Villa #{i+1}",
-    villa_location: "Location #{i+1}",
-    img_url: "https://images.unsplash.com/photo-1636484807469-e33af13716b7?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    description: "A beautiful luxury villa located in Location #{i+1}.",
-    price: (500 + i * 100).to_f,
-    rating: (4.0 + i * 0.1).round(1),
-    user: users.sample
-  )
-end
+
+villas << Villa.create!(
+  villa_name: "Seaside Retreat",
+  villa_location: "Malibu, California",
+  img_url: "https://www.villaway.com/_next/image?url=https%3A%2F%2Fcdn.villaway.com%2Fvillaway%2F65fce47afaf070152efdcf15-qjpolxipdh-img.webp&w=1080&q=75", # Fill this in later
+  description: "A luxurious seaside villa with stunning ocean views and modern amenities.",
+  price: 1000.0,
+  rating: 4.8,
+  user: users.sample
+)
+
+villas << Villa.create!(
+  villa_name: "Mountain Escape",
+  villa_location: "Aspen, Colorado",
+  img_url: "https://www.aspenluxuryvacationrentals.com/wp-content/uploads/2023/02/original_157473438-1.jpg", # Fill this in later
+  description: "A cozy mountain villa perfect for ski vacations and enjoying nature.",
+  price: 1500.0,
+  rating: 4.9,
+  user: users.sample
+)
+
+villas << Villa.create!(
+  villa_name: "Tropical Paradise",
+  villa_location: "Bali, Indonesia",
+  img_url: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/08/fb/bc/87/private-villas-of-bali.jpg?w=700&h=-1&s=1", # Fill this in later
+  description: "An exotic villa surrounded by lush greenery and a private pool.",
+  price: 800.0,
+  rating: 4.7,
+  user: users.sample
+)
+
+villas << Villa.create!(
+  villa_name: "Urban Chic",
+  villa_location: "New York City, New York",
+  img_url: "https://greystone-on-hudson.com/uploads/img/10-image.jpg", # Fill this in later
+  description: "A modern villa in the heart of the city with rooftop views and luxurious interiors.",
+  price: 2000.0,
+  rating: 4.6,
+  user: users.sample
+)
+
+villas << Villa.create!(
+  villa_name: "Desert Oasis",
+  villa_location: "Palm Springs, California",
+  img_url: "https://img.jamesedition.com/listing_images/2024/04/22/15/16/05/c81d99f6-fc79-4a80-9de0-71d15bde923c/je/760x470xc.jpg", # Fill this in later
+  description: "A unique villa with a private pool and serene desert landscapes.",
+  price: 1200.0,
+  rating: 4.5,
+  user: users.sample
+)
 
 # Create Bookings
 bookings = []

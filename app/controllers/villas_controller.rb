@@ -1,14 +1,12 @@
 class VillasController < ApplicationController
-
   before_action :authenticate_user!
-  before_action :set_villa, only: [:show]
+  before_action :set_villa, only: [:show, :destroy]
 
   def index
     @villas = Villa.all
   end
 
   def show
-
   end
 
   def new
@@ -25,6 +23,15 @@ class VillasController < ApplicationController
     end
   end
 
+  def destroy
+    if @villa.user == current_user
+      @villa.destroy
+      redirect_to dashboard_path, notice: "Villa was successfully deleted."
+    else
+      redirect_to dashboard_path, alert: "You are not authorized to delete this villa."
+    end
+  end
+
   private
 
   def villa_params
@@ -32,6 +39,7 @@ class VillasController < ApplicationController
   end
 
   def set_villa
+    # @villa = current_user.villas.find(params[:id])
     @villa = Villa.find(params[:id])
   end
 end
