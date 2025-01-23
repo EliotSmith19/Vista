@@ -4,7 +4,6 @@ class BookingsController < ApplicationController
   before_action :set_user
 
 
-
   def index
     @booking = Booking.all
   end
@@ -44,12 +43,10 @@ class BookingsController < ApplicationController
     end
   end
 
-
   def destroy
     @booking.destroy
     redirect_to  dashboard_path, status: :see_other
   end
-
 
 
   private

@@ -1,4 +1,5 @@
 <div class="my-container">
+
   <h1>My Properties</h1>
 
   <% if @villas.any? %>
@@ -32,18 +33,61 @@
   </div>
 </div>
 
-
 <div class="my-container">
   <h1>My Booking</h1>
-  <ul>
-    <% @my_bookings.each do |booking| %>
-      <li>
-        <img src="<%= booking.villa.img_url%>" alt="recipe image" width="600px" height="400px" >
-        <p><%= booking.villa.villa_name %></p>
-        <p><%= booking.villa.description %></p>
-        <p><%= booking.start_date %></p>
-        <p><%= booking.end_date %></p>
-      </li>
-    <% end %>
-  </ul>
+  <% if @my_bookings.any? %>
+    <div class="row">
+      <% @my_bookings.each do |booking| %>
+        <div class="col-md-4">
+          <div class="card mb-4">
+            <%= image_tag booking.villa.img_url, class: "card-img-top", alt: booking.villa.villa_name %>
+            <div class="card-body">
+              <h5 class="card-title"><%= booking.villa.villa_name %></h5>
+              <p class="card-text"><%= booking.villa.description %></p>
+              <p class="card-text"><%= booking.start_date %> to <%= booking.end_date %></p>
+              <div class="d-flex justify-content-between">
+                <%= link_to 'Amend Booking', edit_villa_booking_path(booking.villa, booking), class: 'btn btn-primary' %>
+                <%= link_to 'Cancel Booking', villa_booking_path(booking.villa, booking),
+                      method: :delete,
+                      data: { confirm: 'Are you sure you want to delete this booking?' },
+                      class: 'btn btn-danger mt-2' %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <p>You have no bookings yet.</p>
+  <% end %>
+</div>
+
+<div class="my-container">
+  <h1>Booking Requests to Confirm</h1>
+  <% if @booking_requests.any? %>
+    <div class="row">
+      <% @booking_requests.each do |request| %>
+        <div class="col-md-4">
+          <div class="card mb-4">
+            <%= image_tag request.villa.img_url, class: "card-img-top", alt: request.villa.villa_name %>
+            <div class="card-body">
+              <h5 class="card-title"><%= request.villa.villa_name %></h5>
+              <p class="card-text"><%= request.villa.description %></p>
+              <p class="card-text"><%= request.start_date %> to <%= request.end_date %></p>
+              <p class="card-text"><%= request.confirmed %></p>
+              <div class="d-flex justify-content-between">
+                <%= link_to 'Amend Request', edit_villa_booking_path(request.villa, request), class: 'btn btn-primary' %>
+                <%= link_to 'Cancel Request', villa_booking_path(request.villa, request),
+                      method: :delete,
+                      data: { confirm: 'Are you sure you want to delete this request?' },
+                      class: 'btn btn-danger mt-2' %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <p>You have no booking requests to confirm.</p>
+  <% end %>
 </div>
