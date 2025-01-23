@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_villa, except: :confirm
+  before_action :set_villa,  except: %i[confirm]
   before_action :set_user
 
   def index
