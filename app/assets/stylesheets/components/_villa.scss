@@ -24,7 +24,6 @@
   }
 }
 
-
 .divider {
   width: 100%;
   color: #DCA47C;
@@ -38,28 +37,4 @@
   color: #DCA47C;
   height: 5px;
   border-bottom: 3px solid #DCA47C;
-}
-
-.hosted-card {
-  display: flex;
-  flex-wrap: wrap;
-  // background-color: yellowgreen;
-  width: 30%;
-  justify-content: center;
-  align-items: center;
-}
-
-.hosted-image {
-  img {
-    border-radius: 50%;
-    width: 20%;
-    border: 3px solid #DCA47C;
-  }
-}
-
-.hosted-info {
-  padding: 20px;
-  h4 {
-    color: #DCA47C;
-  }
 }
