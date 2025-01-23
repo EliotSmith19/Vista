@@ -12,11 +12,19 @@
       <p><%= @villa.description %></p>
       <p><strong>£<%= @villa.price %> Per night</strong></p>
       <hr class="divider-show">
+      <% if @villa.rating.present? %>
       <%= @villa.rating %> <%= '⭐️'* @villa.rating %>
+      <% end %>
     </div>
-    <div>
-      <%= link_to "Reserve this villa", new_villa_booking_path(@villa), class: "btn-show" %>
-    </div>
+    <% if @villa.user == current_user %>
+        <div class="d-none">
+          <%= link_to "Reserve this villa", new_villa_booking_path(@villa), class: "btn-show" %>
+        </div>
+    <% else %>
+        <div>
+          <%= link_to "Reserve this villa", new_villa_booking_path(@villa), class: "btn-show" %>
+        </div>
+    <% end %>
   </div>
 </div>
 
