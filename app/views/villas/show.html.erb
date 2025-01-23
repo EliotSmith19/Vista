@@ -1,29 +1,21 @@
-<div class="my-container">
+<div class="container-main">
+  <h3 class="mt-4"><%= link_to "< Back", villas_path %></h3>
+</div>
+
+<div class="container-main">
   <div class="villa-card">
     <%= image_tag @villa.img_url %>
 
     <div class="villa-info">
       <h1><%= @villa.villa_name %></h1>
       <p><em><%= @villa.villa_location %></em></p>
-      <hr class="divider">
       <p><%= @villa.description %></p>
       <p><strong>$<%= @villa.price %> night</strong></p>
+      <hr class="divider-show">
       <%= @villa.rating %> <%= '⭐️'* @villa.rating %>
     </div>
-
+    <div>
+      <%= link_to "Reserve this villa", new_villa_booking_path(@villa), class: "btn-show" %>
+    </div>
   </div>
-</div>
-
-
-<div class="my-container">
-  <br>
-
-  <div>
-    <%= link_to "Reserve the villa", new_villa_booking_path(@villa), class: "btn btn-primary btn-nav" %>
-  </div>
-
-  <br>
-  <%= link_to "Back to Villas List", villas_path, class: "btn btn-primary btn-nav" %>
-  <%= link_to 'Back to My Properties', dashboard_path, class: 'btn btn-secondary' %>
-
 </div>

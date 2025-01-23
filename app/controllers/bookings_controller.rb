@@ -1,8 +1,6 @@
 class BookingsController < ApplicationController
-
   before_action :set_villa
   before_action :set_user
-
 
   def index
     @booking = Booking.all

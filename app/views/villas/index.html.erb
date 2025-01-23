@@ -1,9 +1,14 @@
-<div class="container mt-5">
+<div class="container-main">
+  <h1 class="heading-main">All Villas</h1>
+  <hr class="divider-show">
+</div>
+
+<div class="container-main">
   <div class="row">
     <% @villas.each do |villa| %>
       <div class="col-md-4">
         <div class="card card-trip mb-4">
-          <%= image_tag villa.img_url, alt: villa.villa_name, class: "card-img-top" %>
+          <%= link_to image_tag(villa.img_url, alt: villa.villa_name, class: "img-top"), villa_path(villa) %>
              <div class="card-body card-trip-infos">
                 <div>
                   <h2 class="card-title"><%= link_to villa.villa_name, villa_path(villa) %></h2>
