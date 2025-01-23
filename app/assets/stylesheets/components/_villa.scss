@@ -1,15 +1,15 @@
 .villa-card {
   display: flex;
   flex-direction: column;
-  margin: 30px auto;
   background-color: white;
-  width: 70%;
-  max-width: 1200px;
+  width: 100%;
   box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.353);
   border-radius: 20px;
+  position: relative;
 
   img {
     width: 100%;
+    height: 450px;
     object-fit: cover;
     object-position: center;
     border-radius: 20px 20px 0px 0px;
@@ -29,5 +29,37 @@
   width: 100%;
   color: #DCA47C;
   height: 5px;
-  border-bottom: 2px solid #DCA47C;
+  border-bottom: 3px solid #DCA47C;
+  margin: 0px;
+}
+
+.divider-show {
+  width: 100%;
+  color: #DCA47C;
+  height: 5px;
+  border-bottom: 3px solid #DCA47C;
+}
+
+.hosted-card {
+  display: flex;
+  flex-wrap: wrap;
+  // background-color: yellowgreen;
+  width: 30%;
+  justify-content: center;
+  align-items: center;
+}
+
+.hosted-image {
+  img {
+    border-radius: 50%;
+    width: 20%;
+    border: 3px solid #DCA47C;
+  }
+}
+
+.hosted-info {
+  padding: 20px;
+  h4 {
+    color: #DCA47C;
+  }
 }

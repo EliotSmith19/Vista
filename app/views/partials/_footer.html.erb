@@ -1,15 +1,28 @@
 <div class="container-footer-top">
+  <hr class="divider">
   <div class="container-main">
     <div class="my-footer">
 
       <div>
         <h4>Links</h4>
+        <hr class="divider-show">
         <ul>
           <li><%= link_to "Home", villas_path %></li>
           <li><%= link_to "Dashboard", dashboard_path %></li>
           <li><%= link_to "Favourites", villas_path %></li>
-          <li><%= link_to "Profile", villas_path %></li>
+          <li><%= link_to "Profile", profile_path %></li>
           <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Socials</h4>
+        <hr class="divider-show">
+        <ul>
+          <li><i class="fa-brands fa-instagram"></i></li>
+          <li><i class="fa-brands fa-facebook"></i></li>
+          <li><i class="fa-brands fa-x-twitter"></i></li>
+          <li><i class="fa-brands fa-pinterest"></i></li>
         </ul>
       </div>
 
