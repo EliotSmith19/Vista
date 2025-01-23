@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'users/sign_out', to: 'devise/sessions#destroy'
   end
-  
+
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   get "dashboard" => "pages#dashboard"
+  get "profile" => "pages#profile"
 
   # resources :dashboard, only: [:index]
 

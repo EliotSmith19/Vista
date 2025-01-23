@@ -8,4 +8,10 @@ class PagesController < ApplicationController
     @my_bookings = @current_user.bookings
     @booking_requests = current_user.booking_requests
   end
+
+  def profile
+    @current_user = User.find(current_user.id)
+    @villas = @current_user.villas
+    @my_bookings = @current_user.bookings
+  end
 end

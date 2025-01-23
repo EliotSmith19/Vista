@@ -10,7 +10,7 @@
       <h1><%= @villa.villa_name %></h1>
       <p><em><%= @villa.villa_location %></em></p>
       <p><%= @villa.description %></p>
-      <p><strong>$<%= @villa.price %> night</strong></p>
+      <p><strong>£<%= @villa.price %> Per night</strong></p>
       <hr class="divider-show">
       <%= @villa.rating %> <%= '⭐️'* @villa.rating %>
     </div>
@@ -18,4 +18,18 @@
       <%= link_to "Reserve this villa", new_villa_booking_path(@villa), class: "btn-show" %>
     </div>
   </div>
+</div>
+
+<div class="hosted-card">
+
+  <div class="hosted-info">
+    <h4>Hosted by:</h4>
+    <p><strong><%= @villa.user.first_name %> <%= @villa.user.last_name %></strong></p>
+  </div>
+
+  <div class="hosted-image">
+    <%= image_tag(@villa.user.img_url) %>
+  </div>
+
+
 </div>

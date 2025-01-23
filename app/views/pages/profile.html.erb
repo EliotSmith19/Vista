@@ -1,0 +1,12 @@
+<div class="container-main">
+  <h1 class="heading-main">My Profile</h1>
+  <hr class="divider-show">
+</div>
+
+<div class="container-main">
+  <% if @current_user.present? %>
+    <h3><%= @current_user.first_name %> <%= @current_user.last_name %></h3>
+  <% else %>
+    <p>No user logged in</p>
+  <% end %>
+</div>
