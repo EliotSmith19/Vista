@@ -43,9 +43,8 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking = Booking.find(params[:id])
-
     @booking.destroy
-    redirect_to dashboard_path, status: :see_other
+    redirect_to dashboard_path, status: :see_other, notice: 'Booking was successfully deleted.'
   end
 
   private
