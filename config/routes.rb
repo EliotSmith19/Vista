@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   # resources :dashboard, only: [:index]
 
   resources :villas do
-    resources :bookings, only: [:new, :create, :edit, :update, :destroy]
+    resources :bookings, only: [:new, :create, :edit, :update]
   end
+  resources :bookings, only: [:destroy]
 end

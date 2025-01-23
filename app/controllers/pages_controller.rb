@@ -8,4 +8,13 @@ class PagesController < ApplicationController
     @my_bookings = @current_user.bookings
     @booking_requests = current_user.booking_requests
   end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    raise
+    @booking.destroy
+
+    redirect_to  dashboard_path, status: :see_other
+  end
+
 end
