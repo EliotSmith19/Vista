@@ -42,10 +42,13 @@
   right: 20px;
   top: 40px;
 
+
   &:hover {
     background-color: black;
     color: white;
     border-color: black;
+  }
+}
 
 .btn-sand, .btn-red, .btn-green{
   border-radius: 20px;
