@@ -52,6 +52,12 @@
               <p class="card-text"><%= request.confirmed %></p>
               <div class="d-flex justify-content-between">
                 <%= link_to 'Amend Request', edit_villa_booking_path(request.villa, request), class: 'btn btn-primary  btn-sand' %>
+                <% if request.confirmed %>
+                  <%= link_to 'Confirmed', "/", class: 'btn btn-primary  btn-sand' %>
+                <% else %>
+                  <%= link_to 'Not confirmed', "/", class: 'btn btn-primary  btn-red' %>
+                <% end %>
+
                <%= link_to 'Cancel Request', villa_booking_path(request.villa, request), method: :delete,
                     data: { confirm: 'Are you sure you want to cancel this booking request?' }, class: 'btn btn-primary btn-red' %>
 
