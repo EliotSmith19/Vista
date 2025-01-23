@@ -19,11 +19,13 @@
   <br>
 
   <div>
-    <%= link_to "Reserve the villa", new_villa_booking_path(@villa), class: "btn btn-primary btn-nav" %>
+    <%= link_to "Reserve the villa", new_villa_booking_path(@villa), class: "btn btn-primary btn-sand btn-nav" %>
   </div>
 
   <br>
-  <%= link_to "Back to Villas List", villas_path, class: "btn btn-primary btn-nav" %>
-  <%= link_to 'Back to My Properties', dashboard_path, class: 'btn btn-secondary' %>
-
+  <div>
+    <%= link_to "Back to Villas List", villas_path, class: "btn btn-primary btn-sand btn-nav" %>
+    <%= link_to 'Back to My Properties', dashboard_path, class: 'btn btn-secondary btn-sand' %>
+  </div>
+  <br>
 </div>
