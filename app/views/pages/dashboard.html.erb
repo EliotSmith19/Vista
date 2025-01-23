@@ -55,7 +55,7 @@
                 <% if request.confirmed %>
                   <%= link_to 'Confirmed', "/", class: 'btn btn-primary  btn-sand' %>
                 <% else %>
-                  <%= link_to 'Not confirmed', "/", class: 'btn btn-primary  btn-red' %>
+                  <%= link_to 'Confirm Request', confirm_booking_path(request), method: :post, class: 'btn btn-primary  btn-red' %>
                 <% end %>
 
                <%= link_to 'Cancel Request', villa_booking_path(request.villa, request), method: :delete,

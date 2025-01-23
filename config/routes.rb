@@ -23,4 +23,11 @@ Rails.application.routes.draw do
   resources :villas do
     resources :bookings, only: [:new, :create, :edit, :update, :destroy]
   end
+
+  resources :bookings do
+    member do
+      post :confirm
+    end
+  end
+
 end
