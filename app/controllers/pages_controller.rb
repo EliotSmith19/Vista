@@ -9,12 +9,25 @@ class PagesController < ApplicationController
     @booking_requests = current_user.booking_requests
   end
 
-  def destroy
-    @booking = Booking.find(params[:id])
-    raise
-    @booking.destroy
+  # def destroy
+  #   @booking = Booking.find(params[:id])
+  #   @booking.destroy
+  #   redirect_to dashboard_path, status: :see_other
+  # end
 
-    redirect_to  dashboard_path, status: :see_other
-  end
+  # def destroy
+  #   @booking = Booking.find(params[:id])
+  #   @booking.villa = @villa
+  #   @booking.destroy
+  #   redirect_to  dashboard_path, status: :see_other
+  # end
+
+  # def destroy
+  #   @booking_request = Booking.find(params[:id])
+
+  #   @booking.destroy
+  #   redirect_to dashboard_path, status: :see_other
+  # end
+
 
 end
