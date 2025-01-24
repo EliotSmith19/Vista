@@ -5,6 +5,7 @@ class Booking < ApplicationRecord
 
   validates :start_date, :end_date, presence: true
   
+
   # def owner
   #   villa.user
   # end
