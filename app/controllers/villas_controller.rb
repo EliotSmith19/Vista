@@ -1,7 +1,7 @@
 class VillasController < ApplicationController
   before_action :authenticate_user!
   before_action :set_villa, only: [:show, :destroy]
-  before_action :set_user, only: [:index]
+  before_action :set_user
 
   def index
     @villas = Villa.all
@@ -16,6 +16,8 @@ class VillasController < ApplicationController
 
   def show
     @villa = Villa.find(params[:id])
+    @user = User.find(@villa.user_id)
+    @villa.user = @user
   end
 
   def new
