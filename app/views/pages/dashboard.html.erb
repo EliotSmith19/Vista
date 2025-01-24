@@ -47,6 +47,7 @@
               <h5 class="card-title"><%= request.villa.villa_name %></h5>
               <p class="card-text"><%= request.villa.description %></p>
               <p class="card-text"><%= request.start_date %> to <%= request.end_date %></p>
+
               <p class="card-text"><%= request.confirmed %></p>
               <div class="d-flex justify-content-between">
                 <%#= link_to 'Amend Request', edit_villa_booking_path(request.villa, request), class: 'btn btn-primary  btn-sand' %>
@@ -59,6 +60,13 @@
 
                 <%= link_to 'Cancel Request', villa_booking_path(request.villa, request), method: :delete,
                     data: { confirm: 'Are you sure you want to cancel this booking request?' }, class: 'btn btn-primary btn-red' %>
+
+              #<p class="card-text"><%= request.confirmed ? "Confirmed" : "Pending" %></p>
+              #<div class="mt-auto d-flex justify-content-between">
+                <%=# link_to 'Amend Request', edit_villa_booking_path(request.villa, request), class: 'btn btn-outline-warning' %>
+                <%=# link_to 'Cancel Request', villa_booking_path(request.villa, request), method: :delete,
+                      #data: { confirm: 'Are you sure you want to cancel this booking request?' }, class: 'btn btn-outline-warning' %>
+
 
               </div>
             </div>

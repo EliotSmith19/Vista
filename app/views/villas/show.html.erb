@@ -1,33 +1,41 @@
 <div class="container-main">
-  <h3 class="mt-4"><%= link_to "< Back", villas_path %></h3>
+  <h3 class="mt-4"><%= link_to "< Back", villas_path, class: "btn btn-link" %></h3>
 </div>
+<div class="d-flex">
 
-<div class="container-main">
-  <div class="villa-card">
-    <%= link_to cl_image_tag(@villa.img_url.key,  height: 300, width: 400, crop: :fill) %>
-    <div class="villa-info">
-      <h1><%= @villa.villa_name %></h1>
-      <p><em><%= @villa.villa_location %></em></p>
-      <p><%= @villa.description %></p>
-      <p><strong>£<%= @villa.price %> Per night</strong></p>
-      <hr class="divider-show">
+<div class="container-main d-flex justify-content-center">
+  <div class="card col-md-8 mb-4">
+    <%= link_to cl_image_tag(@villa.img_url.key, class: "card-img-top", height: 400, width: 500, crop: :fill) %>
+    <div class="card-body">
+      <h1 class="card-title"><%= @villa.villa_name %></h1>
+      <p class="card-text"><em><%= @villa.villa_location %></em></p>
+      <p class="card-text"><%= @villa.description %></p>
+      <p class="card-text"><strong>£<%= @villa.price %> Per night</strong></p>
+      <hr class="divider">
       <% if @villa.rating.present? %>
-      <%= @villa.rating %> <%= '⭐️'* @villa.rating %>
+        <p class="card-text mt-4"><%= @villa.rating %> <%= '⭐️'* @villa.rating %></p>
+      <% end %>
+      <% if @villa.user == current_user %>
+        <div class="d-none">
+          <%= link_to "Reserve this villa", new_villa_booking_path(@villa), class: "btn btn-primary" %>
+        </div>
+      <% else %>
+        <div>
+          <%= link_to "Reserve this villa", new_villa_booking_path(@villa), class: "btn btn-primary" %>
+        </div>
       <% end %>
     </div>
-    <% if @villa.user == current_user %>
-        <div class="d-none">
-          <%= link_to "Reserve this villa", new_villa_booking_path(@villa), class: "btn-show" %>
-        </div>
-    <% else %>
-        <div>
-          <%= link_to "Reserve this villa", new_villa_booking_path(@villa), class: "btn-show" %>
-        </div>
-    <% end %>
+    <% if @villa.user.present? && @villa.user.img_url.attached? %>
+  <div class="container-main d-flex align-items-center mt-4">
+    <div>
+      <%= link_to cl_image_tag(@villa.user.img_url.key, class: "rounded-circle me-3", height: 100, width: 100, crop: :fill) %>
+    </div>
+    <div>
+      <p class="mb-0"><%= @villa.user.first_name %> <%= @villa.user.last_name %></p>
+    </div>
+  </div>
+<% end %>
+
   </div>
 </div>
-
-
-<% if @villa.user.present? %>
-  <%= link_to cl_image_tag(@villa.user.img_url, class: "test", height: 300, width: 400, crop: :fill) %>
-<% end %>
+</div>

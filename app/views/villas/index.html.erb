@@ -9,8 +9,10 @@
       <div class="row">
         <% @villas.each do |villa| %>
           <div class="col-md-6">
+
             <div class="card card-trip mb-4">
               <%= link_to cl_image_tag(villa.img_url.key, alt: villa.villa_name, class: "img-top", height: 300, width: 400, crop: :fill), villa_path(villa) %>
+
 
               <div class="card-body card-trip-infos">
                 <div>
@@ -25,7 +27,17 @@
                       <% end %>
                     <% end %>
                   </div>
+
+                  <div class="ms-auto">
+                    <% if current_user.favourites.exists?(villa_id: villa.id) %>
+                      <%= button_to "❤️", villa_remove_favourite_path(villa), method: :delete, class: "btn btn-heart" %>
+                    <% else %>
+                      <%= button_to "🖤", villa_add_favourite_path(villa), method: :post, class: "btn btn-heart" %>
+                    <% end %>
+                  </div>
+
                   <h2 class="card-trip-pricing">£<%= villa.price %></h2>
+
                 </div>
               </div>
             </div>
@@ -36,8 +48,13 @@
 
     <div class="col-md-4">
       <div class="map-placeholder">
-        <p class="text-center text-muted">Map Placeholder</p>
       </div>
     </div>
   </div>
+</div>
+
+<div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>

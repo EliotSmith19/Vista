@@ -12,14 +12,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
-
   </head>
-  <body>
-    <%= render "partials/navbar" %>
-    <% flash.each do |key, value| %>
-      <div class="flash <%= key %>"><%= value %></div>
+<body>
+  <%= render "partials/navbar" %>
+  <div class="container mt-3">
+    <% flash.each do |key, message| %>
+      <div class="alert alert-<%= key == 'notice' ? 'success' : 'danger' %> alert-dismissible fade show" role="alert">
+        <%= message %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
     <% end %>
-      <%= yield %>
-    <%= render "partials/footer" %>
-  </body>
+  </div>
+  <%= yield %>
+  <%= render "partials/footer" %>
+</body>
 </html>

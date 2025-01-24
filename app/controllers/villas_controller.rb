@@ -1,14 +1,23 @@
 class VillasController < ApplicationController
   before_action :authenticate_user!
   before_action :set_villa, only: [:show, :destroy]
-  before_action :set_user, only: [:index]
+  before_action :set_user
 
   def index
     @villas = Villa.all
+
+    @markers = @villas.geocoded.map do |villa|
+      {
+        lat: villa.latitude,
+        lng: villa.longitude
+      }
+    end
   end
 
   def show
     @villa = Villa.find(params[:id])
+    @user = User.find(@villa.user_id)
+    @villa.user = @user
   end
 
   def new
@@ -34,7 +43,7 @@ class VillasController < ApplicationController
     end
   end
 
-  
+
   private
 
   def villa_params
