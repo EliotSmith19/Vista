@@ -4,7 +4,7 @@ class Villa < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :favourites
 
-  has_one_attached :photo
+  has_one_attached :img_url
 
   validates :villa_name, :villa_location, :description, :price, presence: true
   validates :price, numericality: { greater_than: 0 }

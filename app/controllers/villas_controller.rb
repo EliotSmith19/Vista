@@ -34,6 +34,7 @@ class VillasController < ApplicationController
     end
   end
 
+  
   private
 
   def villa_params

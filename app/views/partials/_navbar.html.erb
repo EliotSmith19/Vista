@@ -1,21 +1,22 @@
 <div class="container-nav-bottom">
   <div class="container-main">
     <div class="my-nav">
-
       <div>
         <%= link_to root_path do %>
           <%= image_tag("VistaVillas.png") %>
         <% end %>
       </div>
-
       <div id="nav-links">
         <%= link_to "Home", villas_path %>
         <%= link_to "Dashboard", dashboard_path %>
         <%= link_to "Favourites", villas_path %>
         <%= link_to "Profile", profile_path %>
-        <%= link_to "Sign in", user_session_path %>
+        <% if current_user.present? %>
+          <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to "Sign in", new_user_session_path %>
+        <% end %>
       </div>
-
     </div>
   </div>
   <hr class="divider">
