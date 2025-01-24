@@ -6,21 +6,19 @@ Rails.application.routes.draw do
   end
 
   root to: "pages#home"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
+  # Health check route for load balancers or monitoring
   get "up" => "rails/health#show", as: :rails_health_check
 
-  # Defines the root path route ("/")
-  # root "posts#index"
-
+  # Routes for user dashboard and profile
   get "dashboard" => "pages#dashboard"
   get "profile" => "pages#profile"
 
-  # resources :dashboard, only: [:index]
-
   resources :villas do
+    post 'add_favourite', to: 'favourites#create', as: :add_favourite
+    delete 'remove_favourite', to: 'favourites#destroy', as: :remove_favourite
     resources :bookings, only: [:new, :create, :edit, :update, :destroy]
   end
+
+  resources :favourites, only: [:index]
 end

@@ -1,0 +1,19 @@
+<div class="container-main">
+  <h1 class="heading-main">Your Favourites</h1>
+  <hr class="divider-show">
+
+  <div class="row">
+    <% @favourites.each do |favourite| %>
+      <div class="col-md-4">
+        <div class="card card-trip mb-4">
+          <%= link_to image_tag(favourite.villa.img_url, alt: favourite.villa.villa_name, class: "img-top"), villa_path(favourite.villa) %>
+          <div class="card-body card-trip-infos">
+            <h2 class="card-title"><%= link_to favourite.villa.villa_name, villa_path(favourite.villa) %></h2>
+            <p class="card-text">Hosted By: <%= favourite.villa.user.first_name %> <%= favourite.villa.user.last_name %></p>
+            <h2 class="card-trip-pricing">£<%= favourite.villa.price %></h2>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

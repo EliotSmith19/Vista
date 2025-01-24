@@ -5,12 +5,11 @@
 
 <div class="container-main">
   <div class="row">
-
     <div class="col-md-8">
       <div class="row">
         <% @villas.each do |villa| %>
           <div class="col-md-6">
-            <div class="card card-trip mb-4">
+            <div class="card card-trip mb-4 position-relative">
               <%= link_to image_tag(villa.img_url, alt: villa.villa_name, class: "img-top"), villa_path(villa) %>
               <div class="card-body card-trip-infos">
                 <div>
@@ -23,6 +22,13 @@
                       <i class="fas fa-star star-yellow"></i>
                     <% end %>
                     <h2 class="card-trip-pricing">£<%= villa.price %></h2>
+                  </div>
+                  <div class="ms-auto">
+                    <% if current_user.favourites.exists?(villa_id: villa.id) %>
+                      <%= button_to "❤️", villa_remove_favourite_path(villa), method: :delete, class: "btn btn-heart" %>
+                    <% else %>
+                      <%= button_to "🖤", villa_add_favourite_path(villa), method: :post, class: "btn btn-heart" %>
+                    <% end %>
                   </div>
                 </div>
               </div>
