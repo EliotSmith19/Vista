@@ -10,7 +10,8 @@
         <% @villas.each do |villa| %>
           <div class="col-md-6">
             <div class="card card-trip mb-4">
-              <%= link_to image_tag(villa.img_url, alt: villa.villa_name, class: "img-top"), villa_path(villa) %>
+              <%= link_to cl_image_tag(villa.img_url.key, alt: villa.villa_name, class: "img-top", height: 300, width: 400, crop: :fill), villa_path(villa) %>
+
               <div class="card-body card-trip-infos">
                 <div>
                   <h2 class="card-title"><%= link_to villa.villa_name, villa_path(villa) %></h2>
