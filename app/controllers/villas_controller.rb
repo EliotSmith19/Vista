@@ -5,6 +5,13 @@ class VillasController < ApplicationController
 
   def index
     @villas = Villa.all
+
+    @markers = @villas.geocoded.map do |villa|
+      {
+        lat: villa.latitude,
+        lng: villa.longitude
+      }
+    end
   end
 
   def show
@@ -34,7 +41,7 @@ class VillasController < ApplicationController
     end
   end
 
-  
+
   private
 
   def villa_params
