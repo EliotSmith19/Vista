@@ -15,30 +15,9 @@ class PagesController < ApplicationController
     @my_bookings = @current_user.bookings
   end
 
-  # def destroy
-  #   @booking = Booking.find(params[:id])
-  #   @booking.destroy
-  #   redirect_to dashboard_path, status: :see_other
-  # end
-
-  # def destroy
-  #   @booking = Booking.find(params[:id])
-  #   @booking.villa = @villa
-  #   @booking.destroy
-  #   redirect_to  dashboard_path, status: :see_other
-  # end
-
   def destroy
     @booking_request = Booking.find(params[:id])
     @booking_request.destroy
     redirect_to dashboard_path, status: :see_other, notice: 'Booking was successfully deleted.'
   end
-  # def destroy
-  #   @booking_request = Booking.find(params[:id])
-
-  #   @booking.destroy
-  #   redirect_to dashboard_path, status: :see_other
-  # end
-
-
 end
