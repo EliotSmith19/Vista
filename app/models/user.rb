@@ -9,5 +9,5 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :booking_requests, through: :villas, source: :bookings
 
- 
+
 end
