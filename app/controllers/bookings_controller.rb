@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_villa
+  before_action :set_villa,  except: %i[confirm]
   before_action :set_user
 
   def index
@@ -45,6 +45,13 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.destroy
     redirect_to dashboard_path, status: :see_other, notice: 'Booking was successfully deleted.'
+  end
+
+  def confirm
+    @booking = Booking.find(params[:id])
+    @booking.confirmed = true
+    @booking.save
+    redirect_to dashboard_path, notice: "Request confirmed!"
   end
 
   private

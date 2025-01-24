@@ -17,7 +17,7 @@
                 <%= link_to 'Delete', villa_path(villa),
                       method: :delete,
                       data: { confirm: 'Are you sure you want to delete this property?' },
-                      class: 'btn btn-outline-warning' %>
+                      class: 'btn btn-primary btn-red' %>
               </div>
             </div>
           </div>
@@ -48,11 +48,25 @@
               <p class="card-text"><%= request.villa.description %></p>
               <p class="card-text"><%= request.start_date %> to <%= request.end_date %></p>
 
-              <p class="card-text"><%= request.confirmed ? "Confirmed" : "Pending" %></p>
-              <div class="mt-auto d-flex justify-content-between">
-                <%= link_to 'Amend Request', edit_villa_booking_path(request.villa, request), class: 'btn btn-outline-warning' %>
+              <p class="card-text"><%= request.confirmed %></p>
+              <div class="d-flex justify-content-between">
+                <%#= link_to 'Amend Request', edit_villa_booking_path(request.villa, request), class: 'btn btn-primary  btn-sand' %>
+
+                <% if request.confirmed %>
+                  <span class="btn btn-primary  btn-sand">Confirmed</span>
+                <% else %>
+                  <%= link_to 'Confirm Request', confirm_booking_path(request), method: :post, data: { confirm: 'Are you sure you want to confirm this booking request?' }, class: 'btn btn-primary  btn-red' %>
+                <% end %>
+
                 <%= link_to 'Cancel Request', villa_booking_path(request.villa, request), method: :delete,
-                      data: { confirm: 'Are you sure you want to cancel this booking request?' }, class: 'btn btn-outline-warning' %>
+                    data: { confirm: 'Are you sure you want to cancel this booking request?' }, class: 'btn btn-primary btn-red' %>
+
+              #<p class="card-text"><%= request.confirmed ? "Confirmed" : "Pending" %></p>
+              #<div class="mt-auto d-flex justify-content-between">
+                <%=# link_to 'Amend Request', edit_villa_booking_path(request.villa, request), class: 'btn btn-outline-warning' %>
+                <%=# link_to 'Cancel Request', villa_booking_path(request.villa, request), method: :delete,
+                      #data: { confirm: 'Are you sure you want to cancel this booking request?' }, class: 'btn btn-outline-warning' %>
+
 
               </div>
             </div>
