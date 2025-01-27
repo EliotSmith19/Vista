@@ -5,7 +5,7 @@
 
 <div class="container-main d-flex justify-content-center">
   <div class="card col-md-8 mb-4">
-    <%= link_to cl_image_tag(@villa.img_url.key, class: "card-img-top", height: 400, width: 500, crop: :fill) %>
+    <%= link_to cl_image_tag(@villa.img_url.key, class: "card-img-top", height: 400, width: 500, crop: :fit) %>
     <div class="card-body">
       <h1 class="card-title"><%= @villa.villa_name %></h1>
       <p class="card-text"><em><%= @villa.villa_location %></em></p>
@@ -21,7 +21,7 @@
         </div>
       <% else %>
         <div>
-          <%= link_to "Reserve this villa", new_villa_booking_path(@villa), class: "btn btn-primary" %>
+          <%= link_to "Reserve this villa", new_villa_booking_path(@villa), class: "btn-show" %>
         </div>
       <% end %>
     </div>
